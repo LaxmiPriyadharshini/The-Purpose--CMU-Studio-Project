@@ -130,11 +130,11 @@ router.post('/signupmhp',middleware.reg_valid,function(req,res,next){
     var newUser = new User(userData);
     newUser.save((err) => {
         var mailOptions = {
-            from     : 'sansundar561@gmail.com',
+            from     : 'steelsmilingdev@gmail.com',
             to       :  userData.email,
             subject  : 'Steel Smiling - Account Activation',
             html     : `<h1>Steel Smiling - Account Activation</h1>
-                       <p>Hello <b>${userData.fullname}</b>,<br>You have been added as a practitoner in Steel Smiling. Your email id is: <b>${userData.email}</b> and temporary password is: <b>${req.body.password}</b>. Sign on <a href="http://localhost:3000/"> now! Don't forget to reset the password</p><br> `
+                       <p>Hello <b>${userData.fullname}</b>,<br>You have been added as a practitoner in Steel Smiling. Your email id is: <b>${userData.email}</b> and temporary password is: <b>${req.body.password}</b>. Sign on <a href="http://ec2-18-216-0-212.us-east-2.compute.amazonaws.com:3000"> now! Don't forget to reset the password</p><br> `
         };
         methods.sendEmail(mailOptions).then(function(info){
             data = {msg: "Email sent to the Practitioner", success: true};
@@ -158,12 +158,12 @@ router.post('/referral',function(req,res,next){
         referralCodeval     : "",
     };
     var mailOptions = {
-           from     : 'sansundar561@gmail.com',
+           from     : 'steelsmilingdev@gmail.com',
            to       :  email,
            subject  : 'Steel Smiling - Account Activation',
            html     : `<h1>Steel Smiling - Account Activation</h1>
                        <p>Hello <b>Community Member,</b>.<br>Your friend has referred 
-                       you to join Steel Smiling Community. Sign on <a href="http://localhost:3000/"> now and please use this referral code to join <b>${referralCode}</b></p>  `
+                       you to join Steel Smiling Community. Sign on <a href="http://ec2-18-216-0-212.us-east-2.compute.amazonaws.com:3000"> now and please use this referral code to join <b>${referralCode}</b></p>  `
        };
     methods.sendEmail(mailOptions).then(function(info){
         var newReferral = new Referral(referralData);
@@ -172,7 +172,6 @@ router.post('/referral',function(req,res,next){
             res.send(data);
         });
     }).catch(function(err){
-        console.log("In error");
          var data = {msg:"Something went wrong.",param:"",success:false};
          res.send(data);
     });
