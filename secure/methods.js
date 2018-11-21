@@ -7,8 +7,8 @@ function sendEmail(mailOptions) {
         var transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: 'sansundar561@gmail.com',
-                pass: '98944svk',
+                user: 'steelsmilingdev@gmail.com',
+                pass: 'just$mile',
             },
             tls: {
                 rejectUnauthorized: false
