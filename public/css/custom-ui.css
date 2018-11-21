@@ -1098,8 +1098,8 @@ span.lead{
   font-size: 12px;
   background-color: palegoldenrod;
   text-decoration-color: #1d1e1f;
-  position: absolute;
-  bottom: 10px;
+  position: fixed;
+  bottom: 0px;
   clear: both;
 }
 
