@@ -200,7 +200,7 @@ function upload_resource(e){
                 icon = "fa-check-square";
                 document.querySelector("form").reset();
                 button.removeAttribute("disabled");
-                button.removeAttribute("style");
+		button.removeAttribute("style");
             }else{
                 console.log("failed success");
                 html =  `<div class="alert alert-danger " role="alert">
