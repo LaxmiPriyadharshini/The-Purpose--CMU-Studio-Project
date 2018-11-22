@@ -1151,7 +1151,8 @@ if(users){
                         if(newMessages.length>oldMessages.length){
                             //console.log(`RING- ${newMessages.length} ${oldMessages.length}`);
                             document.querySelector('#msg-new').play();
-			    //document.querySelector('#outgoing').scrollTop = document.querySelector('#outgoing').scrollHeight;
+			    document.querySelector('#outgoing').scrollTop = document.querySelector('#outgoing').scrollHeight;
+			    document.querySelector('#incoming').scrollTop = document.querySelector('#incoming').scrollHeight;
                             document.querySelector('#chatForm').scrollTop = document.querySelector('#chatForm').scrollHeight;
                         }
                     }
