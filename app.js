@@ -32,9 +32,7 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function() {
-//   console.log("Connection open");
-// });
+
 
 require('./secure/passport');
 
@@ -45,8 +43,6 @@ require('./secure/passport');
 var app = express();
 
 app.set('port', process.env.PORT || 3000 );
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs',engine);
 app.set('view engine', 'ejs');
 
@@ -193,11 +189,11 @@ app.use('/', donate);
 
 
 // catch 404 and forward to error handler
-/*app.use(function(req, res, next) {
+app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
-});*/
+});
 
 // error handler
 app.use(function(err, req, res, next) {
