@@ -43,7 +43,6 @@ router.get('/logout',function(req,res,next){
 
 /* GET all notifications */
 router.get('/getFeed',function(req,res,next){
-   //console.log("In getFeed")
     Notification.find({showTo:req.user._id},(err,data)=>{
       res.send(data);
     }).sort({'_id':-1});
@@ -70,7 +69,7 @@ router.post('/register',middleware.reg_valid,function(req,res,next){
     		username  	 : req.body.username,
     		email 	  	 : req.body.email,
     		password  	 : bcrypt.hashSync(req.body.password, 10),
-            role : "Peer",
+            role : "Administrator",
             status :"1",
     		accountToken : hash
     };

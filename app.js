@@ -26,7 +26,7 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var mongoStore = require('connect-mongo')(session);
 
-mongoose.connect("mongodb://localhost:27017/someNetwork");
+mongoose.connect("mongodb://localhost:27017/thepurpose");
 mongoose.Promise = global.Promise;
 
 var db = mongoose.connection;

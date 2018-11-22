@@ -11,7 +11,10 @@ fs = require('fs'),
 
     router.get('/donate',function(req,res,next) {
         User.find({_id: {$ne: req.user._id}}, (err, user) => {
-            if (err) throw err;
+            if (err){
+		     console.log(req.user._id);
+		     throw err;
+		}
             if (user) {
                 res.render('donate', {title: "Steel Smiling", user: req.user, header: true, navbar: true});
             }

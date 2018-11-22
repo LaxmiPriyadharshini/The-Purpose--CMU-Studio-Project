@@ -1129,9 +1129,9 @@ if(users){
 
             //retreive user chat
             ajxReq = $.ajax({
-                url: '/getMessage/'+receiver,
+                url: '/getMessage',
                 method: 'POST',
-                data : {sender:sender},
+                data : {receiver:receiver,sender:sender},
                 dataType:'json',
                 /*beforeSend : function(http){
                   receiver ="";
@@ -1165,7 +1165,100 @@ if(users){
 
 
 
-/*//fetch notifications
+//fetch notifications
+
+/*function getNotification(){
+
+    let parent = document.querySelectorAll('.notification-bar');
+
+    $.ajax({
+        url: '/getFeed',
+        type: 'GET',
+        dataType: 'json',
+        success:function(response){
+
+            let countOld;
+
+            let data = response.map(data => {
+                let html;
+                if(window.innerWidth > 768){
+
+                    countOld = parent[0].querySelectorAll('li').length;
+
+                    html = `<li>
+                            <a href="/post/${data.taskID}">`;
+
+                    if(data.taskByImg && data.taskByImg.includes("http")){
+                        html +=   `<img src="${data.taskByImg}" class="mb-2 rounded">`;
+                    } else {
+                        html +=   `<img src="../images/profile/${data.taskByImg}" class="mb-2 rounded">`;
+                    }
+
+                    html +=  `<b class="ml-3">${data.taskByName}</b> ${data.taskType == "like"?'liked your post':'commented on your post'}
+              
+                                    </a>
+                                  </li>`;
+
+                }else{
+
+                    countOld = parent[1].querySelectorAll('li').length;
+
+                    html = `  <li>
+                               <a href="/post/${data.taskID}">`;
+
+                    if(data.taskByImg && data.taskByImg.includes("http")){
+                        html +=   `<img src="${data.taskByImg}" class="mr-3" style="width:40px;height:40px;">`;
+                    } else {
+                        html +=   `<img src="../images/profile/${data.taskByImg}" class="mr-3" style="width:40px;height:40px;">`;
+                    }
+
+
+                    html +=       ` <span><b>${data.taskByName}</b> ${data.taskType == "like"?'liked your post':'commented on your post'}</span>
+                                       </a>
+                                       </li>`;
+
+                }
+
+                return html;
+
+            }).join(" ");
+
+
+
+            if(window.innerWidth > 768){
+                data = (data == "") ? `<p class="lead">No Notifications</p>`: data;
+                parent[0].innerHTML = data;
+                let newCount = parent[0].querySelectorAll('li').length;
+                if(countOld < newCount){
+                    notifBtn[0].style.color = '#2196f3';
+                }
+            }else{
+                data = (data == "") ? `<p class="lead">No Notifications</p>`:data;
+                parent[1].innerHTML = data;
+                let newCount = parent[1].querySelectorAll('li').length;
+                if(countOld < newCount){
+                    notifBtn[1].style.color = '#2196f3';
+                }
+            }
+
+        }
+    });
+
+}
+
+
+if(notifBtn.length > 0){
+
+    notifBtn.forEach(button => button.addEventListener('click',function(){
+        this.style.color = "#222";
+        getNotification();
+    }));
+
+    setInterval(getNotification,8000);
+
+}*/
+
+//fetch notifications
 
 function getNotification(){
 
@@ -1244,7 +1337,7 @@ function getNotification(){
         }
     });
 
-}*/
+}
 
 
 if(notifBtn.length > 0){
@@ -1254,7 +1347,6 @@ if(notifBtn.length > 0){
         getNotification();
     }));
 
-    setInterval(getNotification,8000);
+    setInterval(getNotification,5000);
 
 }
-
