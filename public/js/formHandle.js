@@ -182,7 +182,7 @@ function upload_resource(e){
 
         beforeSend : function(http){
             button.style.opacity = '0.7';
-            button.innerText = 'REFER';
+            button.innerText = 'SAVING';
             button.setAttribute("disabled", "true");
         },
         success    : function(response,status,http){
