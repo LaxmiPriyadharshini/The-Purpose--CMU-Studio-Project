@@ -69,7 +69,7 @@ router.post('/register',middleware.reg_valid,function(req,res,next){
     		username  	 : req.body.username,
     		email 	  	 : req.body.email,
     		password  	 : bcrypt.hashSync(req.body.password, 10),
-            role : "Administrator",
+            role : "Peer",
             status :"1",
     		accountToken : hash
     };
