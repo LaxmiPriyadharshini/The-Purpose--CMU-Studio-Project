@@ -1,4 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+max-height<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
                                                                                                                 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
                                                                                                                                                                                               <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
                                                                                                                                                                                                                                                      .services_panel .panel{min-height: 377px;border: 1px solid #eea236;border-top:3px solid #eea236 !important;background: #fbfbfb;margin-top:10%;}
@@ -372,7 +372,7 @@ header a{
   background: #fff;
   text-align: center;
   z-index: 99999;
-  max-height: 65px;
+
 }
 
 .mobile-nav a{
